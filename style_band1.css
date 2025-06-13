@@ -1,0 +1,300 @@
+:root {
+  --color-main: #5a9f44;
+  --color-black: #000000;
+  --color-gray: #847D7A; 
+}
+
+html {
+  scroll-behavior: smooth; 
+}
+
+h1, h2, h3 {
+	color: var(--color-black);
+	margin: 0;
+}
+
+p {
+	margin: 0;	
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	font-family: 'Raleway';
+	display: flex;
+	flex-direction: column;
+	margin: 0px;
+	overflow-x: hidden;
+}
+
+header {
+	font-family: 'Roboto';
+	padding: 20px 0px;
+	display: flex;
+    align-items: center;
+	z-index: 2;
+	background-color:#fff;
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5)
+}
+
+header, footer, section{
+	padding: 0px 140px;
+}
+.burger {
+	display: none;
+	color:#5a9f44;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+.logo {
+	padding: 20px 0px;
+	text-align: center;
+}
+
+footer .logo {
+	width: 105px;
+	text-align: center;
+	color: #fff;
+}
+
+.menu {
+	display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-left: 100px;
+}
+
+.menu a {
+	font-size: 16px;
+	color: var(--color-gray);
+}
+
+.menu a:hover {
+	color: var(--color-main);
+}
+
+.mobile-menu {
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	background-color: #fff;
+	position: fixed;
+    top: 0;
+    left: 0;
+	z-index: 999;
+	
+}
+
+.menu-content {
+	padding: 20px 40px;
+}
+
+.product-card {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  gap: 30px;
+  max-width: 1100px;
+  border: 2px solid #45a049;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image-container {
+  flex: 1;
+}
+
+.product-image {
+  width: 290px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.product-title {
+    color: #000;
+	font-size: 20px;
+	margin-bottom: 35px;
+	font-family: 'Raleway';
+	font-weight: 400;
+}
+
+
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-specs {
+  margin: 15px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+
+.size-selector {
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.size-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.size-option {
+  position: relative;
+}
+
+.size-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.size-option span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.size-option input:checked + span {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
+.add-to-cart {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #45a049;
+  
+}
+.spec-item {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.spec-name {
+  font-weight: bold;
+  width: 100px;
+  color: #000000;
+}
+
+.spec-value {
+  flex: 1;
+}
+@media (max-width: 980px) {
+	header, footer, section{
+		padding: 0px 60px;
+	}
+	
+	h2 {
+		font-size: 25px;
+	}
+	
+	
+	header {
+		padding: 25px 60px;
+		justify-content: space-between;
+	}
+	
+	.logo {
+		width: 80px;
+		font-size: 12px;
+	}
+	
+	.menu {
+		display: none;
+	}
+	
+	.burger {
+		display: block;
+	}
+	
+
+}
+@keyframes addToCart {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.add-to-cart-animation {
+  animation: addToCart 0.5s ease;
+}
+
+/* Плавные переходы между страницами */
+.page-transition {
+  transition: opacity 0.3s ease;
+}
+
+.page-enter {
+  opacity: 0;
+}
+
+.page-enter-active {
+  opacity: 1;
+}
+
+/* Анимация для корзины */
+.cart-item {
+  transition: all 0.3s ease;
+}
+
+.cart-item-removed {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  transition: opacity 0.3s;
+}
+
+.fade-out {
+  opacity: 0;
+}
+*/
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .product-card {
+    flex-direction: column;
+  }
+}
